@@ -1,0 +1,44 @@
+:root {
+  --ui-color: white;
+  --background-image: url('https://i.imgur.com/I20SLp7.jpeg');
+}
+
+@media (max-aspect-ratio: 1/1) {
+  :root {
+    --ui-color: black;
+    --background-image: url('https://i.imgur.com/NBSjgHE.jpeg');
+  }
+  .Time, .Weather, .App, .Widgets {
+    color: var(--ui-color) !important;
+  }
+}
+
+h3::first-letter {
+  text-transform: capitalize;
+}
+
+hr {
+  border-top: 5px solid var(--ui-color) !important;
+}
+
+input {
+  border-bottom-color: var(--ui-color) !important;
+}
+
+.Overlay svg {
+  display: none !important;
+}
+
+.Overlay:hover svg {
+  display: initial !important;
+}
+
+.Image {
+  background: var(--background-image) center / cover !important;
+}
+
+@media (max-aspect-ratio: 1/1) {
+  .Image {
+    background-image: var(--background-image) !important;
+  }
+}
