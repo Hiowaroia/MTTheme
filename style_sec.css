@@ -1,14 +1,14 @@
 :root {
   --ui-color: black;
   --background-image: url('https://i.imgur.com/I20SLp7.jpeg');
+  .Time, .Weather, .App, .Widgets {
+    color: var(--ui-color) !important;
+  }
 }
 
 @media (max-aspect-ratio: 1/1) {
   :root {
     --background-image: url('https://i.imgur.com/NBSjgHE.jpeg');
-  }
-  .Time, .Weather, .App, .Widgets {
-    color: var(--ui-color) !important;
   }
 }
 
