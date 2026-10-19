@@ -1,12 +1,12 @@
 :root {
   --ui-color: white;
-  --background-image: url('https://i.imgur.com/I20SLp7.jpeg');
+  --background-image: url('wide.jpg');
 }
 
 @media (max-aspect-ratio: 1/1) {
   :root {
     --ui-color: black;
-    --background-image: url('https://i.imgur.com/NBSjgHE.jpeg');
+    --background-image: url('tall.jpg');
   }
   .Time, .Weather, .App, .Widgets {
     color: var(--ui-color) !important;
