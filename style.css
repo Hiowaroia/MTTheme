@@ -1,0 +1,93 @@
+/* ==========================================================
+ *  MTTheme - Tabliss custom CSS (single combined file)
+ *  Section 1: defaults for every screen
+ *  Section 2: override for 1861x1046 screens (smaller scale, black UI)
+ *  ========================================================== */
+
+
+/* ----------------------------------------------------------
+ *  1. DEFAULTS (all screens)
+ *  ---------------------------------------------------------- */
+
+/* Landscape defaults: white UI colour and the wide wallpaper.
+ *  Full jsDelivr URLs are used so the images load whether this file
+ *  is @imported or pasted directly into the custom CSS box. */
+:root {
+  --ui-color: white;
+  --background-image: url('https://cdn.jsdelivr.net/gh/Hiowaroia/MTTheme@main/wide.jpg');
+}
+
+/* Portrait screens (taller than wide): black UI and the tall wallpaper */
+@media (max-aspect-ratio: 1/1) {
+  :root {
+    --ui-color: black;
+    --background-image: url('https://cdn.jsdelivr.net/gh/Hiowaroia/MTTheme@main/tall.jpg');
+  }
+  /* Force the text of the main widgets to use the UI colour */
+  .Time, .Weather, .App, .Widgets {
+    color: var(--ui-color) !important;
+  }
+}
+
+/* Capitalise the first letter of every h3 heading */
+h3::first-letter {
+  text-transform: capitalize;
+}
+
+/* Horizontal divider lines: thick, in the UI colour */
+hr {
+  border-top: 6px solid var(--ui-color) !important;
+}
+
+/* Underline of input fields in the UI colour */
+input {
+  border-bottom-color: var(--ui-color) !important;
+}
+
+/* Hide the overlay icons by default, show them only on hover */
+.Overlay svg {
+  display: none !important;
+}
+.Overlay:hover svg {
+  display: initial !important;
+}
+
+/* Background wallpaper: uses whichever image the variable currently holds
+ *  (wide or tall), centred and scaled to cover the screen */
+.Image {
+  background: var(--background-image) center / cover !important;
+}
+
+
+/* ----------------------------------------------------------
+ *  2. OVERRIDES for 1861x1046 screens
+ *  Must stay at the bottom so it wins over the rules above.
+ *  device-width/height = physical screen size (not the window size).
+ *  To check the real values, run in the console:
+ *  screen.width + "x" + screen.height
+ *  ---------------------------------------------------------- */
+@media (device-width: 1861px) and (device-height: 1046px) {
+
+  /* Always use the black UI colour, whatever the aspect ratio */
+  :root {
+    --ui-color: black;
+  }
+  .Time, .Weather, .App, .Widgets {
+    color: var(--ui-color) !important;
+  }
+
+  /* Scale everything down to 80% (change 0.8 to taste) */
+  html {
+    zoom: 0.8;
+  }
+
+  /* Alternative scaling: if zoom leaves gaps at the screen edges,
+   *    delete the zoom rule above and use this instead.
+   * html {
+   *   transform: scale(0.8);
+   *   transform-origin: top left;
+   *   width: 125%;
+   *   height: 125%;
+}
+(125% = 100 / 0.8, so change both if you change the scale) */
+}
